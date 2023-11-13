@@ -1,7 +1,5 @@
 FROM node:16.20.2-bullseye-slim AS build
 
-ENV NODE_ENV production
-
 WORKDIR /usr/src/app
 
 COPY package.json yarn.lock ./
