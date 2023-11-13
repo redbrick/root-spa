@@ -37,6 +37,7 @@ jobs:
           registry-url: ${{ env.PKG_REGISTRY_URL }}
           scope: '@redbrick'
       - run: yarn
+      - run: yarn version --new-version minor
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
