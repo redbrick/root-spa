@@ -1,5 +1,5 @@
 {
-  "name": "@redbrick/web-root",
+  "name": "@redbrick/root-spa",
   "scripts": {
     "start": "webpack serve --port 9000 --env isLocal",
     "lint": "eslint src --ext js,ts,tsx",
@@ -46,5 +46,5 @@
     "@types/webpack-env": "^1.16.2",
     "single-spa-layout": "^1.6.0"
   },
-  "types": "dist/redbrick-web-root.d.ts"
+  "types": "dist/redbrick-root-spa.d.ts"
 }

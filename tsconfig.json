@@ -1,6 +1,6 @@
 {
   "extends": "ts-config-single-spa",
-  "files": ["src/redbrick-web-root.ts"],
+  "files": ["src/redbrick-root-spa.ts"],
   "compilerOptions": {
     "declarationDir": "dist"
   },

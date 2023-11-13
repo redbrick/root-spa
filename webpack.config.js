@@ -6,7 +6,7 @@ module.exports = (webpackConfigEnv, argv) => {
   const orgName = 'redbrick'
   const defaultConfig = singleSpaDefaults({
     orgName,
-    projectName: 'web-root',
+    projectName: 'root-spa',
     webpackConfigEnv,
     argv,
     disableHtmlGeneration: true,
