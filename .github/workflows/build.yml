@@ -5,6 +5,8 @@ env:
   PKG_REGISTRY_URL: https://npm.pkg.github.com/
   IMAGE_REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  GIT_AUTHOR_NAME: Redbrick Runner
+  GIT_AUTHOR_EMAIL: runner@redbrick.dcu.ie
 
 on:
   push:
