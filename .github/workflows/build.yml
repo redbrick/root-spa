@@ -5,8 +5,6 @@ env:
   PKG_REGISTRY_URL: https://npm.pkg.github.com/
   IMAGE_REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  GIT_AUTHOR_NAME: Redbrick Runner
-  GIT_AUTHOR_EMAIL: runner@redbrick.dcu.ie
 
 on:
   push:
@@ -39,7 +37,7 @@ jobs:
           registry-url: ${{ env.PKG_REGISTRY_URL }}
           scope: '@redbrick'
       - run: yarn
-      - run: yarn version --new-version minor
+      - run: yarn version --minor --no-git-tag-version
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
