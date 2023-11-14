@@ -25,9 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: cardinalby/git-get-release-action@v1
-        id: release
-        with:
-          release: ${{ github.event.release.id }}
+        id: get_release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -45,6 +43,6 @@ jobs:
           registry-url: ${{ env.PKG_REGISTRY_URL }}
           scope: '@redbrick'
       - run: yarn install --immutable
-      - run: yarn publish --new-version ${{ steps.release.outputs.tag_name }} --access public
+      - run: yarn publish --new-version ${{ steps.get_release.outputs.tag_name }} --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
