@@ -46,6 +46,5 @@
     "single-spa": "^5.9.3",
     "single-spa-layout": "^1.6.0"
   },
-  "types": "dist/redbrick-root-spa.d.ts",
-  "version": "0.1.0"
+  "types": "dist/redbrick-root-spa.d.ts"
 }
