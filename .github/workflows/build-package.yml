@@ -21,7 +21,7 @@ jobs:
       - run: yarn test
 
   build-and-publish-package:
-    needs: get-release-version
+    needs: test
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -32,8 +32,8 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: ${{ env.PKG_REGISTRY_URL }}
-          scope: '@redbrick'
+          scope: "@redbrick"
       - run: yarn install --immutable
-      - run: yarn publish --new-version ${{ github.event.release.tag_name }} --access public
+      - run: yarn publish --no-git-tag-version --new-version ${{ github.event.release.tag_name }} --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
