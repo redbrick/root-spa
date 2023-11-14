@@ -20,15 +20,6 @@ jobs:
       - run: yarn lint
       - run: yarn test
 
-  get-release-version:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: cardinalby/git-get-release-action@v1
-        id: get_release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   build-and-publish-package:
     needs: get-release-version
     runs-on: ubuntu-latest
@@ -43,6 +34,6 @@ jobs:
           registry-url: ${{ env.PKG_REGISTRY_URL }}
           scope: '@redbrick'
       - run: yarn install --immutable
-      - run: yarn publish --new-version ${{ steps.get_release.outputs.tag_name }} --access public
+      - run: yarn publish --new-version ${{ github.event.release.tag_name }} --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
